@@ -1,0 +1,13 @@
+createProfile:
+REQUIRED data is REQUIRED other is optional.
+API Endpoint: "https://europe-west2-betacuck.cloudfunctions.net/createProfile"
+Expected Data: {
+    "email": "THE_EMAIL_ADDRESS", REQUIRED
+    "type": "employer OR member" REQUIRED
+    "name": "NAME",
+    "phone": "PHONE",
+}
+RETURNS:
+success on success (200 HTTP code)
+no-email if no email provided (400 HTTP code)
+The python error (500 HTTP code)

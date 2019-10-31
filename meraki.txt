@@ -1,0 +1,88 @@
+Meraki
+Meraki Cloud managed, network managment tool
+	-Aim: Simplify network deployment
+	-Controlled through web interface
+	-IoT support for the platform
+	-IoT trainset:
+		-Build Lego trains
+		-Add microcontrollers:
+			-RaspberryPi
+			-Arduino
+			-ESP8266
+		-Add APIs to microcontrollers
+		-Allows data harvesting at scale
+	-Steal data from enterprise clients
+	-API interface provided API first design
+	-JAM stack-ish
+	-Cameras:
+		-Parts:
+			-Camera
+			-Closed circuit storage
+		-Meraki Cameras:
+			-Smartphone capability
+			-Stores footage on device itself
+			-When you want to view footage SSL tunnel to camera
+			-CV to make recording smart:
+				-Tag footage based off object detection
+					-Car detection
+					-How many people in lobby according to camera 3
+					-Analytics
+			-MQTT Protocol
+				-Publish Subscribe system alla Twitter
+				-Follow certain topics
+				-Add tags to your own broadcasts
+				-Allows real time telemetry from cameras
+			-Use streaming capabilites to talk to devices:
+				-Turn light on when person starts walking upstairs
+				-Intruder detection/warning
+			-Hit API to feed into other services ie AWS Recoknition
+		-Special lens to allow motor esc experience without need for error prone motors
+	-API provides all data from Meraki dasboard in RESTful way <3
+	-Location API:
+		-Wireless + BT radios
+		-Phone Tracking:
+			-Track broadcast requests to track location of users
+			-EVIL
+			-Data now anomynised with fake details therefore only connected clients are tracked
+			-T&Cs make users "aware" of tracking
+		-Beacon tracking:
+			-Microcontroller sends requests to APs
+			-Can then be tracked
+		-Non tracked location aware data:
+			-AP beacons
+			-Client can then execute events based of the new location information example:
+				-Museum showing exhibit info
+	-Captive Portal API
+		-Custom splash pages for accessing APs
+		-Client -> AP -> WebServer -> AP
+	-Webhook API
+		-Push message (similar to REST)
+		-Event driven notifications
+	-MV Sense
+		-Camera -> MQTT Broker -> Client
+		-Zone areas of camera to allow specific analytics
+	-Custom dashboard
+		-Allows integration with 3rd party APIs
+		-example
+			-MV Sense -> AWS -> Dashboard
+	-Casestudy Mapwize
+		-Indoor mapping + location services
+		-Uses Meraki APIs
+	-Meraki DevNet
+		-OSS demos for different APIs (explore tab)
+		-NodeRed dashboard for Meraki APIs
+
+
+
+Flow based programming
+	-Connect componenets
+	-Allows greater focus on the business solution
+	-Zapier:
+		-Connect business applications
+		-Gmail -> dropbox -> ???
+	-NodeRed:
+		-Open Source flow based programming tool
+		-Created by IBM
+		-Written with NodeJS backend + Drag and drop + JS frontend
+		-Run on Docker
+		

@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+
+.profile>img,h2 {
+  margin-left: 75px;
+  font-family: Nunito;
+  font-size: 16px;
+}
+
+.profile>img {
+  margin-left: 100px;
+  margin-bottom: 20px;
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  border-radius: 50px;
+}
+
+
+.jobs {
+  display: none;
+}
+
+.courses {
+  display: none;
+}

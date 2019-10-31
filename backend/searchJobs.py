@@ -31,6 +31,13 @@ def searchJobs(request):
         'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json',
     }
+
+    email = request_json.get("email", "")
+    location = request_json.get("location", "")
+    search_term = request_json.get("searchTerm", "")
+    if email == "" or location == "" or search_term == "":
+        return ('bad-boy', 400, headers)
+        
     try:
         collection_path = "jobs"
         db = firestore.Client()
@@ -44,9 +51,12 @@ def searchJobs(request):
             if employer != "" and job_title != "":
                 job_key = ("{}{}".format(employer, job_title)).lower()
                 temp.append((job_key, job))
+        
+        collection_path = "profiles"
+        profile = db.collection(collection_path).document(request_json.get("email")).get().to_dict()
+        
     except Exception as e:
         return(str(e), 500, headers)
-
 
     #TODO James Magic Time
 

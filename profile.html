@@ -1,0 +1,81 @@
+<head>
+  <script src="script.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+
+<body>
+
+  <div id="content" class="col-sm-12">
+    <h1>Your Profile</h1>
+
+    <form class = "form-horizontal" id="moreDetailsFrm" action="volunteersDetails.php" method="post">
+
+    <div class="form-group">
+      <label class = "control-label col-sm-5">First Name:</label>
+      <div class = "col-sm-4"><input type="text" class="form-control" pattern="[A-Za-z ]{1,30}" oninvalid="this.setCustomValidity('Please enter a name less than 30 characters with only letters')" name="VolFName" id = "FName" required></div>
+                <!-- Validation:
+                Only letters and spaces
+                No longer than 30 characters
+                Required field -->
+    </div>
+
+    <div class="form-group">
+      <label class = "control-label col-sm-5">Last Name:</label>
+      <div class="col-sm-4"><input type="text" class="form-control" pattern="[A-Za-z ]{1,30}" oninvalid="this.setCustomValidity('Please enter a name less than 30 characters with only letters')" name="VolLName" id = "LName" required></div>
+                <!-- Validation:
+                Only letters and spaces
+                No longer than 30 characters
+                Required field -->
+    </div>
+
+
+    <div class = "form-group">
+      <label class = "control-label col-sm-5">Email:</label>
+      <div class = "col-sm-4"><input type="email" class="form-control" name="email" maxlength = "40" id = "email" required></div>
+                <!-- Validation:
+                Default email type html validation
+                Required field -->
+    </div>
+
+    <div class = "form-group">
+      <label class = "control-label col-sm-5">Skills:</label>
+      <div class = "col-sm-4"><textarea class="form-control" name="skills" rows="5" id="skills"></textarea></div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-5">Work Experience:</label>
+      <div class="col-sm-4"> <textarea class="form-control" name="experience" rows="5" id="experience"></textarea></div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-5">Education:</label>
+      <div class="col-sm-4"> <textarea class="form-control" name="education" rows="5" id="education"></textarea></div>
+    </div>
+
+    <center><input type="submit" name="subBut" class="btn btn-default"></input></center>
+
+
+
+
+
+    </form>
+  </div>
+
+  <div id="sideBar">
+    <div id="user">
+      <img src="assets/profile1.jpg" id="userphoto"></img>
+      <a id="username">Joe Mama</a>
+    </div>
+    <div class="tab first" onclick="">Profile</div>
+    <div class="tab" onclick="">Jobs</div>
+    <div class="tab" onclick="">Courses</div>
+    <p id="settings">Settings</p>
+  </div>
+
+</body>
+
+<!--AIzaSyDWYq7uH1moCNt0dtJonknJkp_bpMtrPxM-->

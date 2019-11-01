@@ -54,7 +54,7 @@ getJob:
 
 
 searchJobs: NOT IMPLEMENTED
-    API Endpoint: 
+    API Endpoint:
     Expected Data: {
 
     }
@@ -62,7 +62,7 @@ searchJobs: NOT IMPLEMENTED
 
 
 getCourses: NOT IMPLEMENTED
-    API Endpoint: 
+    API Endpoint:
     Expected Data: {
 
     }
@@ -70,7 +70,7 @@ getCourses: NOT IMPLEMENTED
 
 
 login: NOT IMPLEMENTED
-    API Endpoint: 
+    API Endpoint:
     Expected Data: {
 
     }

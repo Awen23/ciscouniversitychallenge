@@ -53,7 +53,7 @@ getJob:
     python error on server error (500 HTTP code)
 
 
-searchJobs: NOT IMPLEMENTED
+searchJobs: 
     API Endpoint:
     Expected Data: {
 
@@ -69,13 +69,16 @@ getCourses: NOT IMPLEMENTED
     RETURNS
 
 
-login: NOT IMPLEMENTED
+login: 
     API Endpoint:
     Expected Data: {
-
+        "email": MEMBER_EMAIL REQUIRED
+        "password": SUBMITTED_PASSWORD REQUIRED
     }
     RETURNS
-
+    {
+        "success": true/false 
+    }
 
 applyJob:
     API Endpoint: https://europe-west2-betacuck.cloudfunctions.net/applyJob

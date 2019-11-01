@@ -1,4 +1,6 @@
 var oldcontent = document.getElementsByClassName('content profile');
+var jobs;
+var courses;
 
 function loadName(){
   document.getElementById("username").innerHTML = document.cookie.substr(9);
@@ -48,7 +50,7 @@ function getJobs() {
     console.log(data);
 
     for(i = 1; i<data.length ; i++){
-      document.getElementById("jobList").innerHTML += "<div id='joblisting'><h2>" + data[i].job + " at " + data[i].employer + "</h2></div>";
+      document.getElementById("jobList").innerHTML += "<div class='joblisting " + i + "' onclick='expandJob(" + i + ")'><h2>" + data[i].job + " at " + data[i].employer + "</h2><p id='jobDescription'>Email : " + data[i].email + "<br>Skills required : " + JSON.stringify(data[i].skills) + "</p><button style='margin-left:40px;'>Apply</button></div>";
     }
 
   }
@@ -68,11 +70,31 @@ function getCourses() {
 
     for(i = 0; i<data.length ; i++){
       if(i!=1){
-        document.getElementById("courseList").innerHTML += "<div id='joblisting'><h2>" + data[i].name + " teaching " + data[i].topic + "</h2></div>";
+        document.getElementById("courseList").innerHTML += "<div class='joblisting " + i + "' onclick='expandCourse(" + i + ")'><h2>" + data[i].name + " teaching " + data[i].topic + "</h2><p id='courseDescription'>Link : " + data[i].link +  "<br>Complexity level : " + data[i].level + "</p></div>";
       }
     }
 
 
   }
   request.send()
+}
+
+function expandJob(num){
+  var elem = document.getElementsByClassName(num);
+  if(elem[0].style.height == '400px'){
+    elem[0].style.height = '50px';
+  }
+  else {
+    elem[0].style.height = '400px';
+  }
+}
+
+function expandCourse(num){
+  var elem = document.getElementsByClassName(num);
+  if(elem[0].style.height == '400px'){
+    elem[0].style.height = '50px';
+  }
+  else {
+    elem[0].style.height = '400px';
+  }
 }

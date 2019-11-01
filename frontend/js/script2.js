@@ -7,6 +7,7 @@ function showProfile() {
   newcontent[0].style.display = "block";
   newcontent[1].style.display = "none";
   newcontent[2].style.display = "none";
+  newcontent[3].style.display = "none";
 }
 
 function showJobs() {
@@ -14,6 +15,7 @@ function showJobs() {
   newcontent[0].style.display = "none";
   newcontent[1].style.display = "block";
   newcontent[2].style.display = "none";
+  newcontent[3].style.display = "none";
 }
 
 function showCourses() {
@@ -21,6 +23,15 @@ function showCourses() {
   newcontent[0].style.display = "none";
   newcontent[1].style.display = "none";
   newcontent[2].style.display = "block";
+  newcontent[3].style.display = "none";
+}
+
+function showChat() {
+  var newcontent = document.getElementsByClassName('content');
+  newcontent[0].style.display = "none";
+  newcontent[1].style.display = "none";
+  newcontent[2].style.display = "none";
+  newcontent[3].style.display = "block";
 }
 
 function getJobs() {
@@ -35,7 +46,7 @@ function getJobs() {
     console.log(data);
 
     for(i = 1; i<data.length ; i++){
-      document.getElementById("jobList").innerHTML += "<div id='joblisting'><h2>" + data[i].job + " at " + data[i].employer + "</h2></div>";
+      document.getElementById("jobList").innerHTML += "<div class='joblisting " + i + "' onclick='expandJob(" + i + ")'><h2>" + data[i].job + " at " + data[i].employer + "</h2><p id='jobDescription'>Email : " + data[i].email + "<br>Skills required : " + JSON.stringify(data[i].skills) + "</p><button style='margin-left:40px;'>Apply</button></div>";
     }
 
   }
@@ -55,11 +66,41 @@ function getCourses() {
 
     for(i = 0; i<data.length ; i++){
       if(i!=1){
-        document.getElementById("courseList").innerHTML += "<div id='joblisting'><h2>" + data[i].name + " teaching " + data[i].topic + "</h2></div>";
+        document.getElementById("courseList").innerHTML += "<div class='joblisting " + i + "' onclick='expandCourse(" + i + ")'><h2>" + data[i].name + " teaching " + data[i].topic + "</h2><p id='courseDescription'>Link : " + data[i].link +  "<br>Complexity level : " + data[i].level + "</p></div>";
       }
     }
 
 
   }
   request.send()
+}
+
+function expandJob(num){
+  var elem = document.getElementsByClassName(num);
+  if(elem[0].style.height == '400px'){
+    elem[0].style.height = '50px';
+  }
+  else {
+    elem[0].style.height = '400px';
+  }
+}
+
+function expandCourse(num){
+  var elem = document.getElementsByClassName(num);
+  if(num == 0){
+    if(elem[0].style.height == '400px'){
+      elem[0].style.height = '50px';
+    }
+    else {
+      elem[0].style.height = '400px';
+    }
+  }
+  else {
+    if(elem[1].style.height == '400px'){
+      elem[1].style.height = '50px';
+    }
+    else {
+      elem[1].style.height = '400px';
+    }
+  }
 }

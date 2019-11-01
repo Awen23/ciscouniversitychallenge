@@ -6,7 +6,7 @@
 </head>
 
 
-<body onload="loadName(); getJobs(); getCourses(); showProfile()">
+<body onload="loadName(); getJobs(); getCourses(); showProfile(); setInterval(checkMessages(), 100)">
 
   <div class="content profile">
     <div id="header"><h1>Profile</h1></div>
@@ -36,6 +36,8 @@
   <div class="content chat" style="height:100%; overflow-y: scroll;">
     <div id="header"><h1>Chat</h1></div>
       <div id="mainchat">
+
+        <!--
         <div class="col-sm-12" style="padding-top:10px;padding-bottom:10px">
           <div class="col-sm-4"></div>
           <div id="mydiv" class="col-sm-8">
@@ -48,18 +50,21 @@
             <p class="youchat">No u fuck this</p>
           </div>
           <div class="col-sm-4"></div></div>
+        </div>-->
 
-
+        <div id="conversation">
+          <div id="receivedMess">Hi man</div>
         </div>
 
         <footer class="message-footer">
           <div class="input-group message-bar">
-            <input type="text" class="form-control">
+            <input type="text" id="message" class="form-control">
             <span class="input-group-btn">
-              <button class="btn btn-default" type="button" onclick="sendMessage()">Send</button>
+              <button class="btn btn-default" type="button" onclick="messageTrigger()">Send</button>
          </span>
        </div>
     </footer>
+  </div>
   </div>
 
 

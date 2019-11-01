@@ -48,6 +48,27 @@
   border-radius:10px;
 }
 
+#receivedMess {
+  margin-left: 60%;
+  border: 1px solid black;
+  width: 30%;
+  height: 20px;
+  padding: 10px;
+  padding-left: 30px;
+  border-radius: 10px;
+}
+
+#userMess {
+  margin-top: 50px;
+  margin-left: 10%;
+  border: 1px solid black;
+  width: 30%;
+  height: 20px;
+  padding: 10px;
+  padding-left: 30px;
+  border-radius: 10px;
+}
+
 .labels {
   font-family: Nunito;
   font-size: 40px;
@@ -87,6 +108,7 @@ h1{
   background-color: #F4F4F4;
   position: fixed;
   right: 0;
+  overflow-y: scroll;
 }
 
 #sideBar {
@@ -159,18 +181,44 @@ h1{
   line-height: 50px;
 }
 
-#joblisting {
+.joblisting {
   margin-left: 5%;
+  margin-bottom: 20px;
   width: 90%;
   height: 50px;
   background-color: #ebebeb;
-  line-height: 50px;
+  line-height: 25px;
+  overflow: hidden;
+}
+.joblisting:hover {
+  background-color: #e0d9d9;
 }
 
-#courselisting {
+.courselisting {
   margin-left: 5%;
   width: 90%;
   height: 50px;
   background-color: #ebebeb;
-  line-height: 50px;
+  line-height: 25px;
+  overflow: hidden;
+}
+.courselisting:hover {
+  background-color: #e0d9d9;
+}
+
+#jobDescription {
+  margin-left: 40px;
+  font-family: Nunito;
+}#courseDescription {
+  margin-left: 40px;
+  font-family: Nunito;
+}
+
+#message {
+  margin-left: 5%;
+  width: 70%;
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid black;
+  padding-left: 10px;
 }

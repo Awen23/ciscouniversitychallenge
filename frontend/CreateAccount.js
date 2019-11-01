@@ -1,4 +1,4 @@
-function sendMemberProfile() {
+function verifyAccount(){
 	const data = {
       "name": $('#name').val(),
       "email": $('#email').val(),
@@ -23,17 +23,7 @@ function sendMemberProfile() {
     }).catch((error) => {
     	console.log(error);
     });
-}
-    // $.post(url, data, function(data, status) {
-    // 	console.log(`sent ${data} with status ${status}`)
-    // })
 
-    // $.ajaxSetup({
-    // headers: {
-    //     'Content-Type': 'application/json',
-    //     'Accept': 'application/json',
-    //     'Access-Control-Allow-Headers': 'x-requested-with',
-    //     'Access-Control-Allow-Origin': 'True'
-    // }
-// });
-// }
+	location.replace("main.html");
+
+}

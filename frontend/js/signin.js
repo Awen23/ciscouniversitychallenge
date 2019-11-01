@@ -11,11 +11,11 @@ function verifyAccount(){
   // document.cookie = "user=joe; pass=mama"
   document.cookie = "username=" + email;
 
-  if(email == 'oliver.redeyoff@gmail.com'){
-    location.replace('CustomerPage.html');
+  if(email == "oliver.redeyoff@gmail.com"){
+    location.replace("CustomerPage.html");
   }
   else {
-    location.replace('CompanyPage.html');
+    location.replace("CompanyPage.html");
   }
 
 }

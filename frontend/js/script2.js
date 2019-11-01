@@ -41,3 +41,25 @@ function getJobs() {
   }
   request.send()
 }
+
+function getCourses() {
+  var request = new XMLHttpRequest()
+  request.open('GET', 'https://europe-west2-betacuck.cloudfunctions.net/getCourses')
+	var data = null;
+
+  console.log("test");
+  request.onload = function () {
+    console.log("test");
+    data = JSON.parse(this.response)
+    console.log(data);
+
+    for(i = 0; i<data.length ; i++){
+      if(i!=1){
+        document.getElementById("courseList").innerHTML += "<div id='joblisting'><h2>" + data[i].name + " teaching " + data[i].topic + "</h2></div>";
+      }
+    }
+
+
+  }
+  request.send()
+}

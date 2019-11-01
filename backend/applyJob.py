@@ -39,12 +39,12 @@ def applyJob(request):
 
     # Get Job Email
     job_collection = db.collection(u'jobs')
-    comp_key = u"{}{}".format(request_json.get("organisation"), request_json.get("jobTitle")).tolower()
+    comp_key = (u"{}{}".format(request_json.get("organisation"), request_json.get("jobTitle"))).tolower()
     try:
         job = job_collection.document(comp_key)
     except NotFound:
         return('no-such-job', 400, headers)
-        
+
     jobDict = job.get().to_dict()
     job_email = jobDict.get("email", "")
     if job_email == "":

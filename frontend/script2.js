@@ -1,27 +1,27 @@
 var oldcontent = document.getElementsByClassName('content profile');
 
-function showProfile(){
+function showProfile() {
   var newcontent = document.getElementsByClassName('content');
   newcontent[0].style.display = "block";
   newcontent[1].style.display = "none";
   newcontent[2].style.display = "none";
 }
 
-function showJobs(){
+function showJobs() {
   var newcontent = document.getElementsByClassName('content');
   newcontent[0].style.display = "none";
   newcontent[1].style.display = "block";
   newcontent[2].style.display = "none";
 }
 
-function showCourses(){
+function showCourses() {
   var newcontent = document.getElementsByClassName('content');
   newcontent[0].style.display = "none";
   newcontent[1].style.display = "none";
   newcontent[2].style.display = "block";
 }
 
-function getJobs(){
+function getJobs() {
   toSend = {
     "employer": "cisco",
     "title": "engineer"
@@ -29,14 +29,14 @@ function getJobs(){
 
   fetch('https://europe-west2-betacuck.cloudfunctions.net/getJob', {
     method: 'POST',
-    mode: 'cors',
     headers: {
       'Content-Type': 'application/json',
-      //'Origin': 'localhost'
     },
     body: JSON.stringify(toSend),
   }).then((resp) => {
-    console.log(resp.json());
+    return resp.json();
+  }).then((text) => {
+    console.log(text);
   }).catch((error) => {
     console.log("error");
     console.log(error);

@@ -1,3 +1,3 @@
 function createJob(){
-  location.replace("main2.html");
+  location.replace("CompanyPage.html");
 }

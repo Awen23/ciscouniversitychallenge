@@ -24,6 +24,6 @@ function verifyAccount(){
     	console.log(error);
     });
 
-	location.replace("main.html");
+	location.replace("CustomerPage.html");
 
 }

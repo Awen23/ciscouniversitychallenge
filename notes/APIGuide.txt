@@ -53,7 +53,7 @@ getJob:
     python error on server error (500 HTTP code)
 
 
-searchJobs: 
+searchJobs:
     API Endpoint:
     Expected Data: {
 
@@ -69,7 +69,7 @@ getCourses: NOT IMPLEMENTED
     RETURNS
 
 
-login: 
+login:
     API Endpoint:
     Expected Data: {
         "email": MEMBER_EMAIL REQUIRED
@@ -77,7 +77,7 @@ login:
     }
     RETURNS
     {
-        "success": true/false 
+        "success": true/false
     }
 
 applyJob:

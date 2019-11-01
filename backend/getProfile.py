@@ -1,7 +1,7 @@
 from google.cloud import firestore
 import json
 
-def getJob(request):
+def getProfile(request):
     """Responds to any HTTP request.
     Args:
         request (flask.Request): HTTP request object.
@@ -29,16 +29,13 @@ def getJob(request):
         'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json',
     }
-    try:   
-        employer = request_json.get("employer", "")
-        title = request_json.get("title", "")
-        if employer == "" or title == "":
-            return('no-job', 400, headers)
+    try:
+        if 'email' not in list(request_json.keys()):
+            return('no-email', 400, headers)
 
-        collection_path = "jobs"
-        comp_key = ("{}{}".format(employer, title)).lower()
+        collection_path = "profiles"
         db = firestore.Client()
-        doc = db.collection(collection_path).document(comp_key).get()
+        doc = db.collection(collection_path).document(request_json.get('email')).get()
         print(doc)
         dick = doc.to_dict()
         print(dick)

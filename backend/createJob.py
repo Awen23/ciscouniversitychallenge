@@ -16,7 +16,7 @@ def createJob(request):
         # header and caches preflight response for an 3600s
         headers = {
             'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET',
+            'Access-Control-Allow-Methods': 'POST',
             'Access-Control-Allow-Headers': 'Content-Type',
             'Access-Control-Max-Age': '3600'
         }
@@ -29,13 +29,13 @@ def createJob(request):
         'Content-Type': 'application/json'
     }
     request_json = request.get_json()
-    if request_json.get("jobTitle","") == "" or request_json.get("organisation","") == "":
+    if request_json.get("jobTitle","") == "" or request_json.get("employer","") == "":
         return ('no-title-or-organisation', 400, headers)
 
     db = firestore.Client()
     collection = db.collection(u'profiles')
     try:
-        comp_string = "{}{}".format(request_json.get('jobTitle'), request_json.get('organisation'))
+        comp_string = "{}{}".format(request_json.get('employer'), request_json.get('jobTitle'))
         collection.document(comp_string).set(request_json)
     except Exception as e:
         return(str(e), 500, headers)

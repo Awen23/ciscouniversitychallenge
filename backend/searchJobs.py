@@ -3,15 +3,26 @@ import json
 
 def searchJobs(request):
     #request of form -      [(jobKey,jobDictionary)]
+    # person email - {profile details}
 
-    """Responds to any HTTP request.
-    Args:
-        request (flask.Request): HTTP request object.
-    Returns:
-        The response text or any set of values that can be turned into a
-        Response object using
-        # flask.Flask.make_response>`.
-        `make_response <http://flask.pocoo.org/docs/1.0/api/
+    """
+    HTTP Post Data:
+        {
+            "email": "MEMBER@EMAIL.COM"
+            "location": [LONG, LAT].
+            "search-term": "SEARCH",
+        }
+    Job Data:
+        [(jobkey, jobDictionary)]
+    Person Data:
+        {
+            "email": ,
+            "name": ,
+            "skills": {
+                "maths": LEVEL_OF_SKILL (int)
+            }
+        }
+
     """
     # Set CORS headers for the preflight request
     if request.method == 'OPTIONS':
@@ -31,13 +42,14 @@ def searchJobs(request):
         'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json',
     }
+    #REMOVE = [{}, {"skills": {"english": 2, "maths": 3}, "job": "prozzy", "email": "willcruse123@protonmail.com", "location": ["0", "0"]}]
 
     email = request_json.get("email", "")
     location = request_json.get("location", "")
     search_term = request_json.get("searchTerm", "")
     if email == "" or location == "" or search_term == "":
         return ('bad-boy', 400, headers)
-        
+
     try:
         collection_path = "jobs"
         db = firestore.Client()
@@ -51,14 +63,26 @@ def searchJobs(request):
             if employer != "" and job_title != "":
                 job_key = ("{}{}".format(employer, job_title)).lower()
                 temp.append((job_key, job))
-        
+
         collection_path = "profiles"
         profile = db.collection(collection_path).document(request_json.get("email")).get().to_dict()
-        
+        print(profile)
+        # TO DO James Magic Time on temp
+        bF = False
+        for index in range(len(temp)-1,-1,-1):
+            job_key, job = temp[index]
+            for skill in job["skills"].keys():
+                if profile["skills"].get(skill) is None or job["skills"].get(skill) > profile["skills"].get(skill):
+                    if len(allJobs) == 0:
+                        bF = True
+                        break
+                    allJobs.pop(index)
+                    break
+            if bF:
+                break
+
+        #to do return (json.dumps(FILTERED_JOBS), 200, header)
     except Exception as e:
-        return(str(e), 500, headers)
+        return (str(e), 500, headers)
 
-    #TODO James Magic Time
-
-    #TODO return (json.dumps(FILTERED_JOBS), 200, header)
-    return(json.dumps(allJobs), 200, headers)
+    return (json.dumps(allJobs), 200, headers)

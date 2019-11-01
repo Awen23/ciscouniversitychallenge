@@ -50,23 +50,20 @@ function getJobs() {
   request.send()
 }
 
-function getCourses() {
-  var request = new XMLHttpRequest()
-  request.open('GET', 'https://europe-west2-betacuck.cloudfunctions.net/getCourses')
-	var data = null;
-
-  request.onload = function () {
-    data = JSON.parse(this.response)
-
-    for(i = 0; i<data.length ; i++){
-      if(i!=1){
-        document.getElementById("courseList").innerHTML += "<div class='joblisting " + i + "' onclick='expandCourse(" + i + ")'><h2>" + data[i].name + " teaching " + data[i].topic + "</h2><p id='courseDescription'>Link : " + data[i].link +  "<br>Complexity level : " + data[i].level + "</p></div>";
-      }
-    }
-
-
-  }
-  request.send()
+  fetch('https://europe-west2-betacuck.cloudfunctions.net/getJob', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(toSend),
+  }).then((resp) => {
+    return resp.json();
+  }).then((text) => {
+    console.log(text);
+  }).catch((error) => {
+    console.log("error");
+    console.log(error);
+  });
 }
 
 function expandJob(num){

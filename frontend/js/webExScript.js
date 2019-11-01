@@ -3,6 +3,7 @@ API_KEY = "Bearer ODAyYTE2MmYtYzYwMy00YTE5LWE3MjgtZmIxMzgwMDQxNTM4ZjVjODViNzktMm
 function messageTrigger(){
   sendMessage('oliver.redeyoff@gmail.com', document.getElementById("message").value);
   document.getElementById("conversation").innerHTML += "<div id='userMess'>" + document.getElementById("message").value + "</div>";
+  document.getElementById("message").value = ""
 }
 
 function sendMessage(to, message) {

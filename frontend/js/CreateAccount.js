@@ -24,6 +24,8 @@ function verifyAccount(){
     	console.log(error);
     });
 
-	location.replace("CustomerPage.html");
+		document.cookie = "username=" + document.getElementById('email').value;
+
+		location.replace("CustomerPage.html");
 
 }

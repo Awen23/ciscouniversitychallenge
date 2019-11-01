@@ -39,14 +39,11 @@ function getJobs() {
   request.open('GET', 'https://europe-west2-betacuck.cloudfunctions.net/getAllJobs')
 	var data = null;
 
-  console.log("test");
   request.onload = function () {
-    console.log("test");
     data = JSON.parse(this.response)
-    console.log(data);
 
     for(i = 1; i<data.length ; i++){
-      document.getElementById("jobList").innerHTML += "<div class='joblisting " + i + "' onclick='expandJob(" + i + ")'><h2>" + data[i].job + " at " + data[i].employer + "</h2><p id='jobDescription'>Email : " + data[i].email + "<br>Skills required : " + JSON.stringify(data[i].skills) + "</p><button style='margin-left:40px;'>Apply</button></div>";
+      document.getElementById("jobList").innerHTML += "<div class='joblisting " + i + "' onclick='expandJob(" + i + ")'><h2>" + data[i].job + " at " + data[i].employer + "</h2><p id='jobDescription'>Email : " + data[i].email + "<br>Skills required : " + JSON.stringify(data[i].skills) + "</p><button disabled style='margin-left:40px;'>Apply</button></div>";
     }
 
   }
@@ -58,11 +55,8 @@ function getCourses() {
   request.open('GET', 'https://europe-west2-betacuck.cloudfunctions.net/getCourses')
 	var data = null;
 
-  console.log("test");
   request.onload = function () {
-    console.log("test");
     data = JSON.parse(this.response)
-    console.log(data);
 
     for(i = 0; i<data.length ; i++){
       if(i!=1){

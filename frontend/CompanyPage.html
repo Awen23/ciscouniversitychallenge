@@ -1,17 +1,19 @@
 <head>
   <script src="js/script2.js"></script>
+  <script src="js/webExScript.js"></script>
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link rel="stylesheet" type="text/css" href="css/tabs.css">
 </head>
 
 
-<body onload="getJobs(); loadName()">
+<body onload="loadName(); getJobs(); getCourses(); showProfile()">
 
   <div class="content profile">
     <div id="header"><h1>Profile</h1></div>
     <img src="assets/unknown.png"></img>
-    <h2>Name :</h2>
-    <h2>Description :</h2>
+    <h2>Name : Elpis</h2>
+    <h2>Description : We went homeless people and shit</h2>
+    <h2 style="color: rgb(62, 94, 191); margin-top: 50px;">Edit</h2>
   </div>
 
 
@@ -25,7 +27,10 @@
 
   <div class="content courses">
     <div id="header"><h1>Courses </h1></div>
+    <div id="courseList">
+    </div>
   </div>
+
 
 
   <div id="sideBar">

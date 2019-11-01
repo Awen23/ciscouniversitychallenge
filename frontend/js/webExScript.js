@@ -1,5 +1,11 @@
 API_KEY = "Bearer ODAyYTE2MmYtYzYwMy00YTE5LWE3MjgtZmIxMzgwMDQxNTM4ZjVjODViNzktMmEx_PF84_consumer";
 
+function messageTrigger(){
+  sendMessage('oliver.redeyoff@gmail.com', document.getElementById("message").value);
+  document.getElementById("conversation").innerHTML += "<div id='userMess'>" + document.getElementById("message").value + "</div>";
+  document.getElementById("message").value = ""
+}
+
 function sendMessage(to, message) {
     data = {
         "toPersonEmail": to,
@@ -21,7 +27,8 @@ function sendMessage(to, message) {
     });
 }
 
-function checkMessages(from) {
+function checkMessages() {
+    from = 'oliver.redeyoff@gmail.com'
     fetch(("https://api.ciscospark.com/v1/messages/direct?personEmail=" + from), {
         method: 'GET',
         headers: {

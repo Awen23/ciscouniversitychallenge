@@ -9,6 +9,15 @@ def getQuote():
     num = random.randint(-1, len(keyList)-1)
     return jsonify({"quote": phrases[keyList[num]]})
 
+@app.route('/getResponse',
+methods = ['POST'])
+def getResponse():
+    request_json = request.get_json()
+    print(request_json)
+    print(phrases)
+    return jsonify({"response": phrases.get(request_json.get("inp", "").lower(), "")})
+
+
 
 if __name__=='__main__':
     lines = []
@@ -23,6 +32,6 @@ if __name__=='__main__':
         if '#' not in line and ':' in line:
             splitLine = line.split(":")
             splitLine = [i.strip() for i in splitLine]
-            phrases[splitLine[0]] = splitLine[1]
+            phrases[splitLine[0].lower()] = splitLine[1]
     print(phrases)
     app.run(debug=True)

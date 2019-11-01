@@ -3,6 +3,16 @@ function verifyAccount(){
   var email = info[0].value;
   var password = info[1].value;
 
-  location.replace("CustomerPage.html");
+  var data = {
+    'email': email,
+    'password': password
+  }
+
+  // document.cookie = "user=joe; pass=mama"
+  document.cookie = "username=" + email;
+
+  console.log(document.cookie);
+
+  location.replace("CompanyPage.html");
 
 }

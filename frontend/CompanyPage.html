@@ -5,11 +5,11 @@
 </head>
 
 
-<body onload="getJobs()">
+<body onload="getJobs(); loadName()">
 
   <div class="content profile">
     <div id="header"><h1>Profile</h1></div>
-    <img src="assets/profile1.jpg"></img>
+    <img src="assets/unknown.png"></img>
     <h2>Name :</h2>
     <h2>Description :</h2>
   </div>
@@ -17,7 +17,7 @@
 
   <div class="content jobs">
     <div id="header"><h1>Jobs</h1></div>
-    <img src="assets/add.jpg" style="float:left; height: 40px; width: 40px; margin-top:5px; margin-left: 30px;"></img><div id="newJob"><h2 style="font-size: 20px;">Publish new job openning</h2></div>
+    <div id="newJob" onclick="location.replace('CreateJob.html')"><img src="assets/add.jpg" style="float:left; height: 40px; width: 40px; margin-top:5px; margin-left: 30px;"></img><h2 style="font-size: 20px;">Publish new job openning</h2></div>
     <div id="jobList">
     </div>
   </div>
@@ -30,8 +30,8 @@
 
   <div id="sideBar">
     <div id="user">
-      <img src="assets/profile1.jpg" id="userphoto"></img>
-      <a id="username">Joe Mama</a>
+      <img src="assets/unknown.png" id="userphoto"></img>
+      <a id="username"></a>
     </div>
     <div class="tab first" onclick="showProfile()">Profile</div>
     <div class="tab" onclick="showJobs()">Jobs</div>

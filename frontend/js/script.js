@@ -1,5 +1,9 @@
 var oldcontent = document.getElementsByClassName('content profile');
 
+function loadName(){
+  document.getElementById("username").innerHTML = document.cookie.substr(9);
+}
+
 function showProfile(){
   var newcontent = document.getElementsByClassName('content');
   newcontent[0].style.display = "block";

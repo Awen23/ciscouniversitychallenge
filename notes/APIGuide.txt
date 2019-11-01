@@ -1,13 +1,91 @@
-createProfile:
 REQUIRED data is REQUIRED other is optional.
-API Endpoint: "https://europe-west2-betacuck.cloudfunctions.net/createProfile"
-Expected Data: {
-    "email": "THE_EMAIL_ADDRESS", REQUIRED
-    "type": "employer OR member" REQUIRED
-    "name": "NAME",
-    "phone": "PHONE",
-}
-RETURNS:
-success on success (200 HTTP code)
-no-email if no email provided (400 HTTP code)
-The python error (500 HTTP code)
+
+
+createProfile:
+    API Endpoint: "https://europe-west2-betacuck.cloudfunctions.net/createProfile"
+    Expected Data: {
+        "email": "THE_EMAIL_ADDRESS", REQUIRED
+        "type": "employer OR member" REQUIRED
+        "name": "NAME",
+        "phone": "PHONE",
+    }
+    RETURNS:
+    success on success (200 HTTP code)
+    no-email if no email provided (400 HTTP code)
+    The python error (500 HTTP code)
+
+
+createJob:
+    API Endpoint: https://europe-west2-betacuck.cloudfunctions.net/createJob
+    Expected Data: {
+        "jobTitle": "TITLE_OF_JOB", REQUIRED
+        "employer": "EMPLOYER", REQUIRED
+        "location": [LONG, LAT], (HIGHLY RECOMMENDED MAPS CALL TO CHANGE CITY TO LONG LAT or HARD CODE)
+        "email": "EMAIL_OF_EMPLOYER" REQUIRED
+        "SKILLS": { REQUIRED
+            "SKILL": "LEVEL"
+        }
+    }
+    RETURNS
+    success on success (200 HTTP)
+    no-title-or-organisation on wrong params (400 HTTP)
+    The python error on server error (500 HTTP code)
+
+getProfile:
+    API Endpoint: https://europe-west2-betacuck.cloudfunctions.net/getProfile
+    Expected Data: {
+        "email": "MEMBER_EMAIL" REQUIRED
+    }
+    RETURNS
+    Contents of collection for given email (200 HTTP code)
+    no-email (400 HTTP code)
+    Python Error (500 HTTP code)
+
+getJob:
+    API Endpoint: https://europe-west2-betacuck.cloudfunctions.net/getJob
+    Expected Data: {
+        "employer": "EMPLOYER" REQUIRED
+        "title": "JOB_TITLE" REQUIRED
+    }
+    RETURNS
+    details of job on success (200 HTTP code)
+    no-job on bad request (400 HTTP code)
+    python error on server error (500 HTTP code)
+
+
+searchJobs: NOT IMPLEMENTED
+    API Endpoint: 
+    Expected Data: {
+
+    }
+    RETURNS
+
+
+getCourses: NOT IMPLEMENTED
+    API Endpoint: 
+    Expected Data: {
+
+    }
+    RETURNS
+
+
+login: NOT IMPLEMENTED
+    API Endpoint: 
+    Expected Data: {
+
+    }
+    RETURNS
+
+
+applyJob:
+    API Endpoint: https://europe-west2-betacuck.cloudfunctions.net/applyJob
+    NOTE: Requires email stored in DB
+    Expected Data: {
+        "jobTitle": TITLE_OF_JOB REQUIRED
+        "organisation": EMPLOYER REQUIRED
+        "profileLink": LINK_TO_PROFILE REQUIRED
+    }
+    RETURNS:
+    success on success (200 HTTP code)
+    many variants for missing data (400 HTTP code)
+    python error on server error (500 HTTP code)
